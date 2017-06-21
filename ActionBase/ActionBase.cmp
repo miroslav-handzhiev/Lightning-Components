@@ -1,0 +1,14 @@
+<!-- Copyright SF Studios Ltd. Bulgaria -->
+<aura:component abstract="true" extensible="true" implements="force:lightningQuickActionWithoutHeader,force:hasRecordId" 
+                controller="SObjectService">
+    <!--ABSTRACT COMPONENT FOR QUICK ACTIONS WITH GENERAL HELPER FUNCTIONS -->    
+	<aura:attribute name="recordId" type="String"/>	
+	<aura:attribute name="user" type="Object" />    
+	<aura:attribute name="rec" type="Object" />	
+    <!-- if you put default value into objectAPIName and recordTypeName and call helper.getRecordTypeByName() 
+		to populate recordTypeId, then use it in helper.createRecord -->
+	<aura:attribute name="objectAPIName" type="String" />	
+	<aura:attribute name="recordTypeName" type="String" />	
+	<aura:attribute name="recordTypeId" type="Id" />	
+    {!v.body}
+</aura:component>

@@ -1,0 +1,10 @@
+<!-- Copyright SF Studios Ltd. Bulgaria -->
+<aura:component implements="force:lightningQuickActionWithoutHeader,force:hasRecordId" extends="c:ActionBase">
+	<aura:attribute name="objectAPIName" type="String" default="Event"/>	     
+    
+    
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+    <aura:handler name="change" value="{!v.recordTypeId}" action="{!c.handleRTChange}" />   
+    
+    <c:recordTypeSelector objectAPIName="{!v.objectAPIName}" selectedRTId="{!v.recordTypeId}" />    
+</aura:component>

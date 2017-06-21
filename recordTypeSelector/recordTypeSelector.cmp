@@ -1,0 +1,33 @@
+<!-- Copyright SF Studios Ltd. Bulgaria -->
+<aura:component controller="SObjectService" extends="c:ActionBase">    
+	<aura:attribute name="rtNameIdMap" type="Object" />	
+	<aura:attribute name="objectAPIName" type="String" />    
+	<aura:attribute name="selectedRTId" type="String" />
+    
+	<aura:attribute name="label" type="String" />	
+	<aura:attribute name="value" type="Id" />
+	    
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+    <div class="slds">
+	<div class="slds-col slds-form-element slds-m-around_x-large">
+        <label class="slds-form-element__label" >Select Recordtype</label>
+        <aura:if isTrue="{!v.label != null &amp;&amp; v.label != ''}">
+            <label class="slds-form-element__label" for="{!v.objectAPIName}">{!v.label}</label>
+        </aura:if>
+        <div class="slds-form-element__control">
+            <div class="slds-select_container">
+                <select id="{!v.objectAPIName}" class="slds-select" onchange="{!c.handleChangeValue}">
+                    <aura:iteration items="{!v.rtNameIdMap}" var="option">
+                        <option value="{!option.value}" selected="{!v.value == option.value}">{!option.label}</option>
+                    </aura:iteration>
+                </select>
+            </div>
+        </div>
+    </div>  
+    <div class="buttons">
+        <lightning:button class="slds-button slds-button--neutral" onclick="{!c.handleClosePanel}">Cancel</lightning:button>
+        <lightning:button class="slds-button slds-button--brand" onclick="{!c.handleSelectValue}">Next</lightning:button>
+   </div>
+   
+   </div>
+</aura:component>
